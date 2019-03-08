@@ -24,7 +24,7 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     customer: {
       type: CustomerType,
-      args: { id: { type: GraphQLString } },
+      args: { id: { type: GraphQLString } }
       // resolve(parentVal, args) {
       //   for (const customer of customers) {
       //     if (customer.id === args.id) {
@@ -32,9 +32,12 @@ const RootQuery = new GraphQLObjectType({
       //     }
       //   }
       // }
+    },
+    customers: {
+      type: CustomerType,
       resolve(partnerVal, args) {
         return axios
-          .get(`http://localhost:4001/customers/${args.id}`)
+          .get(`http://localhost:4001/customers/`)
           .then(res => res.data);
       }
     }
