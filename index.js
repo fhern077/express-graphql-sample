@@ -1,7 +1,7 @@
 const express = require("express");
 const expressGraphQl = require("express-graphql");
 const schema = require("./schema.js");
-const PORT = process.env.port || 4000;
+const PORT = process.env.port || require("./config").PORT;
 const app = express();
 
 app.use(
